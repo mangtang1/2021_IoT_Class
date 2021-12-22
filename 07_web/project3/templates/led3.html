@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>LED ON/OFF</h1>
+    <button onclick="led_op('red','on')">RED LED ON</button><br>
+    <button onclick="led_op('red','off')">RED LED OFF</button><br>
+    <button onclick="led_op('blue','on')">BLUE LED ON</button><br>
+    <button onclick="led_op('blue','off')">BLUE LED OFF</button><br>
+    <div id="result"></div>
+    <script>
+        function led_op(col, cmd) {
+            let url = "/led/" + col + "/" + cmd;
+            fetch(url)
+            .then(response=>response.text())
+            .then(data=>{
+                let result = document.querySelector("#result");
+                result.innerHTML = "<h1>" + data + "</h1>";
+            })
+        }
+    </script> 
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a { font-family: Georgia, "맑은 고딕", serif; font-size:30pt;color:chocolate}
+    </style>
+</head>
+<body> 
+        
+    <div style="text-align:center;">
+        <span class="a">
+            <br>
+            {{store_name}} : 연령대 별 선호도 분석
+        </span>
+    </div>
+    <div>
+        <div style="position:relative;top:50pt;">
+            <div>
+                <img src="{{ url_for('static',filename=view_stick) }}" width="800pt" height="300pt" style="float:left;left:100pt;position:relative;">
+            </div>
+            <div>
+                <img src="{{ url_for('static',filename=view_circle) }}" width="500pt" height="300pt" style="float:left;left:100pt;position:relative;">
+            </div>
+        </div>
+    </div>
+    
+    <div style="position:absolute;top:400pt;left:150pt;">
+        <span style="font-size: 30pt;"> {{best_age}}이 가장 선호 하고 있습니다 </span>
+        <br>
+        <span style="font-size: 30pt;"> {{worst_age}}이 가장 불호 하고 있습니다 </span> 
+    </div>
+    
+    <div style="position: absolute;right:10%;bottom: 20%;">
+        <a href = "/" style="font-size: 30pt;">돌아가기</a>
+        <form>
+            <input type="text" placeholder="storeN" name="store"  style="width: 200pt;font-size:large;">
+        </form>
+    </div>
+</body>
+</html>
